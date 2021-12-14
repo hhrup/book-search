@@ -85,12 +85,14 @@ export default function ShowBooks() {
 
   if(isLoading) {
     content = <CircularProgress size='8rem' sx={{alignSelf:'center'}}/>
-  } else if (isSuccess) {
+  } 
+  else if (isSuccess) {
     content = getArrayOfBookCards(volumes);
     pagination = getPagination(volumes.totalItems);
     info = getInfo(title, author, volumes.totalItems);
     prefetchVolumes({title: title, author: author, startIndex: index+10}); // prefetch index must be +10 from index
-  } else if (isError) {
+  } 
+  else if (isError) {
     console.log(error);
     content = <Alert severity="error" sx={{fontSize:'1.4rem', alignContent:'center'}}>{error.error}, Status: {error.status}</Alert>
   }

@@ -18,7 +18,7 @@ export default function SearchBooks() {
     e.preventDefault();
 
     if(formState.title || formState.author) {
-      dispatch(searchParams({...formState, skip: false}));
+      dispatch(searchParams({title: formState.title, author: formState.author, skip: false}));
     }
     else {
       if(!formState.alert)
@@ -36,7 +36,6 @@ export default function SearchBooks() {
       <div className={styles.searchContainer}>
         <Typography variant='h3' sx={{margin:'auto'}}>Book search</Typography>
         <form onSubmit={handleSubmit} className={styles.searchForm}>
-
           <TextField
           id='filled-basic'
           label='Title'
@@ -45,7 +44,6 @@ export default function SearchBooks() {
           value={formState.title}
           onChange={handleChange}
           />
-
           <TextField
           id='filled-basic'
           label='Author'
